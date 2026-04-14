@@ -45,8 +45,8 @@ with st.sidebar:
     st.caption("Engine: Gemini 3 Flash Preview")
 
 # --- MAIN INTERFACE ---
-st.title("Burnout Prevention Engine")
-st.subheader("System Optimization for Gen Z Professionals")
+st.title("Burnout Recovery Engine")
+st.subheader("Adaptive Resilience: Recovery Protocols for Digital Professionals")
 
 # Input Area
 user_text = st.text_area(

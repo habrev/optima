@@ -8,12 +8,73 @@ from engine import get_recovery_protocol
 load_dotenv()
 st.set_page_config(page_title="Burnout Engine // TRL4", layout="wide", page_icon="🔋")
 
-# --- UI STYLING ---
+# --- UI STYLING: CALMING LIGHT THEME ---
 st.markdown("""
     <style>
-    .main { background-color: #0e1117; color: #fafafa; }
-    div[data-testid="stMetricValue"] { color: #00ffcc; }
-    .stAlert { background-color: #161b22; border: 1px solid #30363d; }
+    /* 1. Main Background */
+    .stApp { background-color: #FFFFFF !important; }
+    
+    /* 2. Global Text Color (Soft Black for reduced eye strain) */
+    html, body, p, h1, h2, h3, h4, h5, h6, [class*="st-"] { 
+        color: #2D3748 !important; 
+    }
+
+    /* 3. Sidebar (Soft Light Grey) */
+    section[data-testid="stSidebar"] {
+        background-color: #F7FAFC !important;
+        border-right: 1px solid #E2E8F0;
+    }
+
+    /* 4. Buttons (Calming Soft Blue) */
+    div.stButton > button {
+        background-color: #4A90E2 !important; 
+        color: #FFFFFF !important;
+        border: none !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        transition: background-color 0.3s ease;
+    }
+    div.stButton > button:hover {
+        background-color: #357ABD !important; /* Slightly darker on hover */
+    }
+
+    /* 5. Metrics (Soothing Dark Teal) */
+    div[data-testid="stMetricValue"] { 
+        color: #2C7A7B !important; 
+    }
+
+    /* 6. Text Area Inputs */
+    .stTextArea textarea {
+        background-color: #FFFFFF !important;
+        color: #2D3748 !important;
+        border: 1px solid #CBD5E0 !important;
+        caret-color: #2D3748 !important; /* Ensures cursor is visible */
+    }
+
+    /* 7. Dropdown / Selectbox Fixes for Light Theme */
+    div[data-baseweb="select"] > div {
+        background-color: #FFFFFF !important;
+        color: #2D3748 !important;
+        border: 1px solid #CBD5E0 !important;
+    }
+    div[data-baseweb="select"] div[aria-selected="true"] {
+        color: #2D3748 !important;
+    }
+    ul[data-baseweb="menu"] {
+        background-color: #FFFFFF !important;
+    }
+    li[data-baseweb="option"] {
+        background-color: #FFFFFF !important;
+        color: #2D3748 !important;
+    }
+    li[data-baseweb="option"]:hover {
+        background-color: #EDF2F7 !important; /* Light blue-grey hover */
+    }
+    
+    /* 8. Dividers */
+    hr {
+        border-top: 1px solid #E2E8F0 !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -91,7 +152,5 @@ if st.button("Initialize Diagnostics", type="primary"):
                     for action in protocol['actions']:
                         st.write(f"🔹 {action}")
                 
-                
             else:
                 st.error("Analysis failed. Check your API key and connection.")
-

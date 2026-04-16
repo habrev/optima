@@ -143,7 +143,8 @@ if st.button("Initialize Diagnostics", type="primary"):
                 protocol = get_recovery_protocol(data['stress_level_int'])
                 
                 # 4. Humanized Output
-                st.markdown(f"### Strategy: `{protocol['tier']}`")
+                # Updated line to target the specific color #2d4830 for the Strategy response
+                st.markdown(f"### Strategy: <span style='color: #2d4830;'>{protocol['tier']}</span>", unsafe_allow_html=True)
                 
                 with st.container():
                     st.markdown(f"**Engine Note:** *{protocol['tone']}*")
